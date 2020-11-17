@@ -35,6 +35,20 @@ Park.prototype.findDinosaursInSpecies = function (species) {
     return this.dinosaurs;
 };
     
+Park.prototype.findTotalAverageVisitorsPerDay = function () {
+    total = 0;
+    for (currentDinosaur of this.dinosaurs) {
+        total += (currentDinosaur.guestsAttractedPerDay);
+    }
+    return total;
+}
 
+Park.prototype.findTotalAverageVisitorsPerYear = function () {
+    return this.findTotalAverageVisitorsPerDay() * 365;
+}
+
+Park.prototype.findTotalAnnualRevenue = function () {
+    return this.findTotalAverageVisitorsPerYear() * this.ticketPrice;
+}
 
 module.exports = Park;

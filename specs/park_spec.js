@@ -58,10 +58,27 @@ describe('Park', function() {
     assert.deepStrictEqual(park.findDinosaursInSpecies('diplodocus'), expected);
   });
 
-  xit('should be able to calculate the total number of visitors per day');
+  it('should be able to calculate the total number of visitors per day', function() {
+    park.addDinosaur(tRex);
+    park.addDinosaur(diplodocus1);
+    park.addDinosaur(diplodocus2);
+    assert.strictEqual(park.findTotalAverageVisitorsPerDay(), 120)
+  });
 
-  xit('should be able to calculate the total number of visitors per year');
+  it('should be able to calculate the total number of visitors per year', function() {
+    park.addDinosaur(tRex);
+    park.addDinosaur(diplodocus1);
+    park.addDinosaur(diplodocus2);
+    const expected = 43800;
+    assert.strictEqual(park.findTotalAverageVisitorsPerYear(), expected);
+  });
 
-  xit('should be able to calculate total revenue for one year');
+  it('should be able to calculate total revenue for one year', function() {
+    park.addDinosaur(tRex);
+    park.addDinosaur(diplodocus1);
+    park.addDinosaur(diplodocus2);
+    const expected = 219000;
+    assert.strictEqual(park.findTotalAnnualRevenue(), expected);
+  });
 
 });
