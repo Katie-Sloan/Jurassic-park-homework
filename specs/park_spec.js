@@ -89,4 +89,14 @@ describe('Park', function() {
     assert.deepStrictEqual(park.removeDinosaursBySpecies('diplodocus'), expected);
   });
 
+  it('should be able to provide an object containing each of the diet types and the number of dinosaurs in the park of that diet type', function() {
+    const citipati = new Dinosaur('citipati', 'omnivore', 15);
+    park.addDinosaur(tRex);
+    park.addDinosaur(diplodocus1);
+    park.addDinosaur(diplodocus2);
+    park.addDinosaur(citipati);
+    const expected = { carnivore: 1, herbivore: 2, omnivore: 1 };
+    assert.deepStrictEqual(park.displayNumbersWithDiet(), expected);
+  })
+
 });

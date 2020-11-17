@@ -61,4 +61,24 @@ Park.prototype.removeDinosaursBySpecies = function (species) {
     return singleSpeciesArray;
 }
 
+Park.prototype.displayNumbersWithDiet = function () {
+    numbersByDiet = {
+        carnivore : 0,
+        herbivore : 0,
+        omnivore: 0
+    };
+    for (currentDinosaur of this.dinosaurs) {
+        if (currentDinosaur.diet === 'carnivore') {
+            numbersByDiet.carnivore += 1;
+        };
+        if (currentDinosaur.diet === 'herbivore') {
+            numbersByDiet.herbivore += 1;
+        };
+        if (currentDinosaur.diet === 'omnivore') {
+            numbersByDiet.omnivore += 1;
+        };
+    };
+    return numbersByDiet
+}
+
 module.exports = Park;
