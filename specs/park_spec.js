@@ -9,7 +9,7 @@ describe('Park', function() {
   beforeEach(function () {
     park = new Park('Pollok', 5);
     tRex = new Dinosaur('t-rex', 'carnivore', 50);
-    diplodocus1 = new Dinosaur('diploducus', 'herbivore', 40)
+    diplodocus1 = new Dinosaur('diplodocus', 'herbivore', 40)
     diplodocus2 = new Dinosaur('diplodocus', 'herbivore', 30)
   });
 
@@ -79,6 +79,14 @@ describe('Park', function() {
     park.addDinosaur(diplodocus2);
     const expected = 219000;
     assert.strictEqual(park.findTotalAnnualRevenue(), expected);
+  });
+
+  it('should be able to remove all dinosaurs of a particular species', function() {
+    park.addDinosaur(tRex);
+    park.addDinosaur(diplodocus1);
+    park.addDinosaur(diplodocus2);
+    const expected = [tRex];
+    assert.deepStrictEqual(park.removeDinosaursBySpecies('diplodocus'), expected);
   });
 
 });

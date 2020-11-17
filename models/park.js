@@ -51,4 +51,14 @@ Park.prototype.findTotalAnnualRevenue = function () {
     return this.findTotalAverageVisitorsPerYear() * this.ticketPrice;
 }
 
+Park.prototype.removeDinosaursBySpecies = function (species) {
+    const singleSpeciesArray = [];
+    for (currentDinosaur of this.dinosaurs) {
+        if (currentDinosaur.species !== species) {
+            singleSpeciesArray.push(currentDinosaur);
+        };
+    };
+    return singleSpeciesArray;
+}
+
 module.exports = Park;
