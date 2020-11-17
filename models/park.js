@@ -13,4 +13,28 @@ Park.prototype.removeDinosaur = function (dinosaur) {
     this.dinosaurs.splice(indexOfDinosaur, 1);
 }
 
+Park.prototype.findMostVisitedDinosaur = function () {
+    const arrayOfDinoNumbers = [];
+    for (const currentDinosaur of this.dinosaurs) {
+        arrayOfDinoNumbers.push(currentDinosaur.guestsAttractedPerDay);
+    };
+    for (const currentDinosaur of this.dinosaurs) {
+        if (Math.max.apply(Math, arrayOfDinoNumbers) == currentDinosaur.guestsAttractedPerDay) {
+            return currentDinosaur
+        };
+    };
+}
+
+Park.prototype.findDinosaursInSpecies = function (species) {
+    for (currentDinosaur of this.dinosaurs) {
+        if (currentDinosaur.species !== species) {
+            const indexOfCurrentDinosaur = this.dinosaurs.indexOf(currentDinosaur);
+            this.dinosaurs.splice(indexOfCurrentDinosaur, 1);
+        };
+    };
+    return this.dinosaurs;
+};
+    
+
+
 module.exports = Park;
